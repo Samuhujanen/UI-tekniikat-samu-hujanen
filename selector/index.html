@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <!-- <meta charset="utf-8"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--<link href="Selector%20harjoitus_files/icon.css" rel="stylesheet">-->
+    <title>Selector exercise</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <meta name="description" content="Selector exercise" />
+    <style>
+      div img {
+        width: 90vw;
+      }
+      /*
+       <!--
+        don't touch html. Make the changes below
+      1. Put a yellow area padding and margin 8px everywhere. The background colors are roughly the same as in the example
+      2. gray area margins: up and down 8px and left and right 16px
+      3. remove the margin from the first and last elements of both yellow columns
+      4. The 1st letter of the p-elements following the h1 elements in size 2em
+      5. Line 1 of all p-elements immediately following the h1 element in Courier New font
+      6. Local links The value of the href attribute appears after the link in red and the font Courier New (found by Google)
+      7. External links are followed by a red link icon (Google material icons)
+      8. For yellow columns, the headers (h1 and h2) are in Arial font size 1em
+      9. Above the h1 elements in the middle of the text, 36px margin and text in italics
+      10. The p-elements below the h1 elements in the middle of the text stick to the h1 element (no padding)
+      11. If the last element in the columns is p, then a red box icon (Google material icons)
+      If p is added to the end of the second one, then there should also be a red box (test)
+      If h1 and p are added to the columns, then they would be the same-> selectors do not target only a certain element
+        -->
+        */
+      /* adds yellow background color, margin and padding for the columns that are side by side */
+      .text_container {
+        padding: 8px;
+        margin: 8px;
+        background-color: rgb(253, 229, 192);
+      }
+      /* grid layout for the two yellow columns */
+      .content_holder {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "left right";
+      }
+      /* adds grey background color, margins and padding */
+      #container {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        margin-left: 16px;
+        margin-right: 16px;
+        background-color: rgb(204, 202, 202);
+      }
+      /* removes margin for the first and last elements in the yellow columns */
+      .text_container :first-child,
+      .text_container :last-child {
+        margin: 0px;
+      }
+      /* changes the font size of the first letter in the p element after every h1 element */
+      h1 + p::first-letter {
+        font-size: 2em;
+      }
+      /* changes the font of the first line of the p element after every h1 element */
+      h1 + p::first-line {
+        font-family: "Courier New", Courier, monospace;
+      }
+      /* adds the content after the link */
+      a:not([href^="http://"])::after
+      {
+        font-family: "Courier New", Courier, monospace;
+        color: rgb(190, 48, 48);
+        content: "[" attr(href) "]";
+      }
+      /* adds a red icon after the link */
+      a[href^="http://"]::after
+      {
+        font-family: "Material Icons";
+        content: "open_in_new";
+        color: rgb(190, 48, 48);
+      }
+      /* changes the font of the headers in the yellow columns to arial and size to 1em */
+      .text_container h1,
+      .text_container h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1em;
+      }
+      /* changes the font style of the second headers in the yellow columns to italic and adds a margin */
+      .text_container h1:nth-of-type(2) {
+        margin-top: 36px;
+        margin-bottom: 0px;
+        font-style: italic;
+      }
+      /* makes the p element under the second header in the right yellow column stick to the header */
+      .text_container h1:nth-of-type(2) + p {
+        margin-top: 0px;
+      }
+      /* adds a red icon after p element under the second header of the left yellow column */
+      .text_container p:last-child::after {
+        font-family: "Material Icons";
+        content: "stop";
+        color: rgb(190, 48, 48);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div>
+        <h1>Content in two columns</h1>
+
+        <p>
+          Etiam mofo urna hizzle nisl. Get down get down quizzle arcu. Pizzle
+          pulvinar, ipsizzle malesuada malesuada go to hizzle, nulla purus
+          sizzle nizzle, shiz luctizzle metizzle nulla izzle fizzle. Fo shizzle
+          mah nizzle fo rizzle, mah home g-dizzle ullamcorper, tortor yo mamma
+          varius
+          <a href="local-link.html" target="_top">dizzle</a>, nibh nunc ma
+          nizzle turpis, izzle luctus leo funky fresh fo shizzle mah nizzle fo
+          rizzle, mah home g-dizzle crazy.
+          <a
+            href="http://www.w3schools.com/cssref/css_selectors.asp"
+            target="_blank"
+            rel="noreferrer"
+            >Maurizzle</a
+          >
+          pimpin', orci vel funky fresh consectetuer, sem augue luctus nisi, at
+          bibendizzle enim tellivizzle izzle nisl. Nullam dang break yo neck,
+          yall shiz orci eleifend ghetto.
+        </p>
+      </div>
+
+      <div class="content_holder">
+        <div class="text_container left">
+          <h1>Column 1</h1>
+
+          <p>
+            Etiam mofo urna hizzle nisl. Get down get down quizzle arcu. Pizzle
+            pulvinar, ipsizzle malesuada malesuada go to hizzle, nulla purus
+            sizzle nizzle, shiz luctizzle metizzle nulla izzle fizzle. Fo
+            shizzle mah nizzle fo rizzle, mah home g-dizzle ullamcorper, tortor
+            yo mamma varius dizzle, nibh nunc ma nizzle turpis, izzle luctus leo
+            funky fresh fo shizzle mah nizzle fo rizzle, mah home g-dizzle
+            crazy. Maurizzle pimpin', orci vel funky fresh consectetuer, sem
+            augue luctus nisi, at bibendizzle enim tellivizzle izzle nisl.
+            Nullam dang break yo neck, yall shiz orci eleifend ghetto.
+          </p>
+
+          <p>
+            Da bomb mah nizzle dolor shizzlin dizzle amizzle, consectetuer
+            adipiscing elizzle. Gizzle sapizzle velizzle, hizzle boom
+            shackalack, suscipizzle quis, gangster vel, arcu. Pellentesque
+            bizzle tortor. Crazy erizzle. Crazy dapibizzle. Dang tellizzle urna,
+            pretizzle eu, black ac, eleifend vitae, shiznit. Fizzle suscipizzle.
+            Doggy semper velit sizzle i'm in the shizzle.
+          </p>
+          <h1>Column 1: Second header - level one (eli h1) as the above one</h1>
+
+          <p>
+            Pellentesque bizzle tortor. Crazy erizzle. Daahng dawg at dolor you
+            son of a bizzle turpis tempus fo shizzle. Maurizzle pellentesque fo
+            shizzle my nizzle crazy turpis. Vestibulum izzle yo. Izzle eleifend
+            rhoncizzle fo shizzle. In i'm in the shizzle uhuh ... yih! platea
+            dictumst. Crazy dapibizzle. Dang tellizzle urna, pretizzle eu, black
+            ac, eleifend vitae, shiznit. Fizzle suscipizzle.
+          </p>
+        </div>
+
+        <div class="text_container right">
+          <h1>Column 4</h1>
+
+          <p>
+            Da bomb mah nizzle dolor shizzlin dizzle amizzle, consectetuer
+            adipiscing elizzle. Gizzle sapizzle velizzle, hizzle boom
+            shackalack, suscipizzle quis, gangster vel, arcu. Pellentesque
+            bizzle tortor. Crazy erizzle. Daahng dawg at dolor you son of a
+            bizzle turpis tempus fo shizzle. Maurizzle pellentesque fo shizzle
+            my nizzle crazy turpis. Vestibulum izzle yo. Izzle eleifend
+            rhoncizzle fo shizzle. In i'm in the shizzle uhuh ... yih! platea
+            dictumst. Crazy dapibizzle. Dang tellizzle urna, pretizzle eu, black
+            ac, eleifend vitae, shiznit. Fizzle suscipizzle. Doggy semper velit
+            sizzle i'm in the shizzle.
+          </p>
+
+          <p>
+            Etiam mofo urna hizzle nisl. Get down get down quizzle arcu. Pizzle
+            pulvinar, ipsizzle malesuada malesuada go to hizzle, nulla purus
+            sizzle nizzle, shiz luctizzle metizzle nulla izzle fizzle. Fo
+            shizzle mah nizzle fo rizzle, mah home g-dizzle ullamcorper, tortor
+            yo mamma varius dizzle, nibh nunc ma nizzle turpis, izzle luctus leo
+            funky fresh fo shizzle mah nizzle fo rizzle, mah home g-dizzle
+            crazy. Maurizzle pimpin', orci vel funky fresh.
+          </p>
+
+          <h1>Column 2: Second header - level one (eli h1) as the above one</h1>
+
+          <p>
+            Pizzle pulvinar, ipsizzle malesuada malesuada go to hizzle, nulla
+            purus sizzle nizzle, shiz luctizzle metizzle nulla izzle fizzle. Fo
+            shizzle mah nizzle fo rizzle, mah home g-dizzle ullamcorper, tortor
+            yo mamma varius dizzle, nibh nunc ma nizzle turpis, izzle luctus leo
+            funky fresh fo shizzle mah nizzle fo rizzle, mah home g-dizzle
+            crazy.
+          </p>
+
+          <h2>
+            to the bottom h2-heading to show that it doesn't have bottom
+            margins.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
