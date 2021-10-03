@@ -1,3 +1,4 @@
+/* header settings */
 header {
   font-size: 4rem;
   padding: 20px;
@@ -5,11 +6,11 @@ header {
   border-style: solid;
   grid-area: header;
 }
-
+/* p element font size */
 p {
   font-size: 2rem;
 }
-
+/* text class settings, flex is used center the text */
 .text {
   grid-area: text;
   background-color: rgb(197, 143, 241);
@@ -19,7 +20,7 @@ p {
   display: flex;
   align-items: center;
 }
-
+/* footer settings */
 footer {
   font-size: 25px;
   margin-top: 10px;
@@ -28,28 +29,28 @@ footer {
   border-radius: 25px;
   border-style: solid;
 }
-
+/* body settings */
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   text-align: center;
   background-color: rgb(232, 195, 240);
 }
-
+/* image gallery settings */
 .gallery {
   display: grid;
   grid-gap: 20px;
   grid-area: gallery;
   margin-right: 20px;
 }
-
+/* image settings */
 img {
   width: 100%;
   border-radius: 25px;
   border-style: solid;
   border-width: 5px;
 }
-
+/* settings for screen with width over 800px, changes the image gallery to 2 columns so there are 2 pictures side by side per row  */
 @media screen and (min-width: 800px) {
   .gallery {
     grid-template-columns: 1fr 1fr;
@@ -58,7 +59,7 @@ img {
     max-width: 100%;
   }
 }
-
+/* settings for screen with width over 1200px, changes the display so there are 3 images side by side per row and the text moves next to the image gallery*/
 @media screen and (min-width: 1200px) {
   .content {
     display: grid;
