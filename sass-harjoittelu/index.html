@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>SCSS</h1>
+      </div>
+      <div class="content">
+        <h2>main.scss</h2>
+        <p>
+          @use "./mixins.scss" as mix; $myFont: "Trebuchet MS", "Lucida Sans
+          Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif; body {
+          background-color: beige; } .box { width: 100%; text-align: center;
+          font-family: $myFont; } .header { @extend .box; font-size: 3rem;
+          border: { style: solid; width: 3px; } @include mix.border-radius(5px);
+          background-color: rgb(169, 200, 247); } .content { @extend .box;
+          font-size: 2rem; margin-top: 5px; border: { style: solid; width: 3px;
+          } @include mix.border-radius(5px); background-color: rgb(201, 219,
+          245); } .footer { @extend .box; font-size: 2rem; margin-top: 5px;
+          border: { style: solid; width: 3px; } @include mix.border-radius(5px);
+          background-color: rgb(224, 227, 231); }
+        </p>
+        <h2>mixins.scss</h2>
+        <p>
+          @mixin border-radius($border-radius) { border-radius: $border-radius;
+          } ;
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

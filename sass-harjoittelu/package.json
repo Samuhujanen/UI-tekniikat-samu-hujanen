@@ -1,0 +1,13 @@
+{
+  "name": "scss-harjoittelu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "sass scss/main.scss css/main.css -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

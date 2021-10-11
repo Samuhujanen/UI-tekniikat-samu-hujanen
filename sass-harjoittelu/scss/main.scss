@@ -1,0 +1,42 @@
+@use "./mixins.scss" as mix;
+$myFont: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+  Arial, sans-serif;
+
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+.box {
+  width: 100%;
+  text-align: center;
+  font-family: $myFont;
+}
+
+.header {
+  @extend .box;
+  font-size: 2rem;
+  border: {
+    style: solid;
+    width: 3px;
+  }
+  @include mix.border-radius(5px);
+  background-color: rgb(169, 200, 247);
+  height: 20%;
+}
+
+.content {
+  @extend .box;
+  font-size: 2rem;
+  margin-top: 5px;
+  border: {
+    style: solid;
+    width: 3px;
+  }
+  @include mix.border-radius(5px);
+  background-color: rgb(201, 219, 245);
+  height: 80%;
+}
+
+.container {
+  height: 100vh;
+}
